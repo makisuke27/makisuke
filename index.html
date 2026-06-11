@@ -193,6 +193,11 @@ h1 {
   font-size: 13px;
 }
 
+.benchCard.gk .benchNo {
+  background: #f6c343;
+  color: #111;
+}
+
 .benchName {
   margin-top: 5px;
   font-size: 12px;
@@ -336,43 +341,41 @@ h1 {
 
 <script>
 const starters = [
-  { number: 1, name: "鈴木 彩艶", position: "GK", club: "ﾊﾟﾙﾏ（ｲﾀﾘｱ）", jpclub: "浦和ﾚｯｽﾞ", x: 50, y: 91, feature: "ビルドアップにも関われる守護神。" },
+  { number: 1, name: "鈴木 彩艶", position: "GK", club: "ﾊﾟﾙﾏ（ｲﾀﾘｱ）", jpclub: "浦和レッズ", x: 50, y: 91, feature: "ビルドアップにも関われる守護神。" },
 
-  { number: 21, name: "伊藤 洋輝", position: "CB", club: "ﾊﾞｲｴﾙﾝ（ﾄﾞｲﾂ）", jpclub: "ｼﾞｭﾋﾞﾛ磐田", x: 24, y: 78, feature: "落ち着いた守備対応と配球が持ち味。" },
-  { number: 3, name: "谷口 彰悟", position: "CB", club: "ｼﾝﾄ=ﾄﾛｲﾃﾞﾝ（ﾍﾞﾙｷﾞｰ）", jpclub: "川崎ﾌﾛﾝﾀｰﾚ", x: 50, y: 75, feature: "複数ポジションをこなせる万能型ディフェンダー。" },
-  { number: 4, name: "板倉 滉", position: "CB", club: "ｱﾔｯｸｽ（ｵﾗﾝﾀﾞ）", jpclub: "川崎ﾌﾛﾝﾀｰﾚ", x: 76, y: 78, feature: "対人守備とカバーリングに優れる最終ラインの柱。" },
+  { number: 21, name: "伊藤 洋輝", position: "CB", club: "ﾊﾞｲｴﾙﾝ（ﾄﾞｲﾂ）", jpclub: "ジュビロ磐田", x: 24, y: 75, feature: "落ち着いた守備対応と配球が持ち味。" },
+  { number: 3, name: "谷口 彰悟", position: "CB", club: "ｼﾝﾄ=ﾄﾛｲﾃﾞﾝ（ﾍﾞﾙｷﾞｰ）", jpclub: "川崎フロンターレ", x: 50, y: 78, feature: "複数ポジションをこなせる万能型ディフェンダー。" },
+  { number: 4, name: "板倉 滉", position: "CB", club: "ｱﾔｯｸｽ（ｵﾗﾝﾀﾞ）", jpclub: "川崎フロンターレ", x: 76, y: 75, feature: "対人守備とカバーリングに優れる最終ラインの柱。" },
 
-  { number: 13, name: "中村 敬斗", position: "MF", club: "ｽﾀｯﾄﾞ・ﾗﾝｽ（ﾌﾗﾝｽ）", jpclub: "ｶﾞﾝﾊﾞ大阪", x: 13 , y: 55, feature: "カットインからのシュートが魅力。" },
-  { number: 15, name: "鎌田 大地", position: "MF", club: "ｸﾘｽﾀﾙ・ﾊﾟﾚｽ（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "ｻｶﾞﾝ鳥栖", x: 38 , y: 60, feature: "間で受けて攻撃を組み立てるタイプ。" },
-  { number: 24, name: "佐野 海舟", position: "MF", club: "ﾏｲﾝﾂ（ﾄﾞｲﾂ）", jpclub: "鹿島ｱﾝﾄﾗｰｽﾞ", x: 62, y: 60, feature: "攻守のバランスを整える中盤のリンクマン。" },
-  { number: 10, name: "堂安 律", position: "MF", club: "ﾌﾗﾝｸﾌﾙﾄ（ﾄﾞｲﾂ）", jpclub: "ｶﾞﾝﾊﾞ大阪", x: 87, y: 55, feature: "カットインと得点力を持つ攻撃的MF。" },
+  { number: 13, name: "中村 敬斗", position: "MF", club: "ｽﾀｯﾄﾞ・ﾗﾝｽ（ﾌﾗﾝｽ）", jpclub: "ガンバ大阪", x: 13 , y: 55, feature: "カットインからのシュートが魅力。" },
+  { number: 15, name: "鎌田 大地", position: "MF", club: "ｸﾘｽﾀﾙ・ﾊﾟﾚｽ（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "サガン鳥栖", x: 38 , y: 60, feature: "間で受けて攻撃を組み立てるタイプ。" },
+  { number: 24, name: "佐野 海舟", position: "MF", club: "ﾏｲﾝﾂ（ﾄﾞｲﾂ）", jpclub: "鹿島アントラーズ", x: 62, y: 60, feature: "攻守のバランスを整える中盤のリンクマン。" },
+  { number: 10, name: "堂安 律", position: "MF", club: "ﾌﾗﾝｸﾌﾙﾄ（ﾄﾞｲﾂ）", jpclub: "ガンバ大阪", x: 87, y: 55, feature: "カットインと得点力を持つ攻撃的MF。" },
   
-　{ number: 14, name: "伊東 純也", position: "MF", club: "ﾍﾝｸ（ﾍﾞﾙｷﾞｰ）", jpclub: "柏ﾚｲｿﾙ", x: 62, y: 35, feature: "縦へのスピードとクロスが武器。" },
-  { number: 20, name: "久保 建英", position: "MF", club: "ﾚｱﾙ・ｿｼｴﾀﾞ（ｽﾍﾟｲﾝ）", jpclub: "FC東京", x: 38, y: 35, feature: "狭い局面で違いを作れる左利きのアタッカー。" },
+　{ number: 14, name: "伊東 純也", position: "MF", club: "ﾍﾝｸ（ﾍﾞﾙｷﾞｰ）", jpclub: "柏レイソル", x: 35, y: 35, feature: "縦へのスピードとクロスが武器。" },
+  { number: 20, name: "久保 建英", position: "MF", club: "ﾚｱﾙ・ｿｼｴﾀﾞ（ｽﾍﾟｲﾝ）", jpclub: "FC東京", x: 65, y: 35, feature: "狭い局面で違いを作れる左利きのアタッカー。" },
 
-  { number: 9, name: "上田 綺世", position: "FW", club: "ﾌｪｲｴﾉｰﾙﾄ（ｵﾗﾝﾀﾞ）", jpclub: "鹿島ｱﾝﾄﾗｰｽﾞ", x: 50, y: 16, feature: "ボックス内での動き出しと決定力が強み。" }
+  { number: 9, name: "上田 綺世", position: "FW", club: "ﾌｪｲｴﾉｰﾙﾄ（ｵﾗﾝﾀﾞ）", jpclub: "鹿島アントラーズ", x: 50, y: 16, feature: "ボックス内での動き出しと決定力が強み。" }
 ];
 
 const benchPlayers = [
-  { number: 1, name: "大迫 敬介", position: "GK", club: "サンフレッチェ広島", jpclub: "控えGK", feature: "安定感のあるゴールキーパー。" },
-  { number: 12, name: "前川 黛也", position: "GK", club: "ヴィッセル神戸", jpclub: "控えGK", feature: "足元も使えるGK。" },
-  { number: 22, name: "町田 浩樹", position: "DF", club: "ホッフェンハイム", jpclub: "CB", feature: "高さと左利きのビルドアップが強み。" },
-  { number: 19, name: "中山 雄太", position: "DF", club: "町田ゼルビア", jpclub: "DF", feature: "左サイドとCBをこなせる守備者。" },
-  { number: 21, name: "伊藤 洋輝", position: "DF", club: "バイエルン", jpclub: "DF", feature: "左足の配球と守備範囲が魅力。" },
-  { number: 16, name: "冨安 健洋", position: "CB", club: "アーセナル", jpclub: "右CB",  feature: "複数ポジションをこなせる万能型ディフェンダー。" },
-  { number: 2, name: "菅原 由勢", position: "MF", club: "サウサンプトン", jpclub: "右WB",  feature: "右サイドの推進力とクロスが魅力。" },
-  
-  { number: 14, name: "伊東 純也", position: "MF", club: "スタッド・ランス", jpclub: "右サイド", feature: "縦へのスピードとクロスが武器。" },
-  { number: 17, name: "田中 碧", position: "MF", club: "リーズ", jpclub: "MF", feature: "前線への飛び出しとパスワークに強み。" },
-  { number: 15, name: "鎌田 大地", position: "MF", club: "クリスタル・パレス", jpclub: "MF", feature: "間で受けて攻撃を組み立てるタイプ。" },
-  { number: 8, name: "南野 拓実", position: "MF", club: "モナコ", jpclub: "シャドー", feature: "ゴール前への入り方がうまいアタッカー。" },
-  { number: 13, name: "中村 敬斗", position: "MF", club: "スタッド・ランス", jpclub: "左サイド", feature: "カットインからのシュートが魅力。" },
+  { number: 23, name: "早川 友基", position: "GK", club: "鹿島アントラーズ", jpclub: "鹿島アントラーズ", feature: "反応の速さと安定したセービングが持ち味の控えGK。" },
+  { number: 12, name: "大迫 敬介", position: "GK", club: "サンフレッチェ広島", jpclub: "サンフレッチェ広島", feature: "安定感と足元の技術を備える控えGK。" },
 
-  { number: 11, name: "前田 大然", position: "FW", club: "セルティック", jpclub: "FW", feature: "圧倒的なスプリントと前線守備が武器。" },
-  { number: 18, name: "浅野 拓磨", position: "FW", club: "マジョルカ", jpclub: "FW", feature: "裏への抜け出しとスピードが強み。" },
-  { number: 24, name: "小川 航基", position: "FW", club: "NEC", jpclub: "CF", feature: "高さと得点感覚のあるストライカー。" },
-  { number: 25, name: "旗手 怜央", position: "MF", club: "セルティック", jpclub: "MF", feature: "中盤から攻撃に変化をつけられる選手。" },
-  { number: 26, name: "橋岡 大樹", position: "DF", club: "ルートン", jpclub: "右DF", feature: "右サイドで強度高くプレーできる。" }
+  { number: 5, name: "長友 佑都", position: "DF", club: "FC東京", jpclub: "FC東京", feature: "豊富な経験と運動量でチームを支えるサイドバック。" },
+  { number: 16, name: "渡辺 剛", position: "DF", club: "ﾌｪｲｴﾉｰﾙﾄ（ｵﾗﾝﾀﾞ）", jpclub: "FC東京", feature: "高さと対人守備に強いセンターバック。" },
+  { number: 22, name: "冨安 健洋", position: "DF", club: "ｱﾔｯｸｽ（ｵﾗﾝﾀﾞ）", jpclub: "アビスパ福岡", feature: "複数ポジションをこなせる万能型ディフェンダー。" },
+  { number: 20, name: "瀬古 歩夢", position: "DF", club: "ﾙ・ｱｰｳﾞﾙAC（ﾌﾗﾝｽ）", jpclub: "セレッソ大阪", feature: "読みの良さとカバーリングが魅力のCB。" },
+  { number: 2, name: "菅原 由勢", position: "DF", club: "ｳﾞｪﾙﾀﾞｰ・ﾌﾞﾚｰﾒﾝ（ﾄﾞｲﾂ）", jpclub: "名古屋グランパス", feature: "右サイドでの推進力とクロスが武器。" },
+  { number: 25, name: "鈴木 淳之介", position: "DF", club: "FCｺﾍﾟﾝﾊｰｹﾞﾝ（ﾃﾞﾝﾏｰｸ）", jpclub: "湘南ベルマーレ", feature: "左利きでビルドアップにも関われるディフェンダー。" },
+
+  { number: 6, name: "遠藤 航", position: "MF", club: "ﾘﾊﾞﾌﾟｰﾙFC（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "浦和レッズ", feature: "球際と回収力で中盤を締める守備的MF。" },
+  { number: 19, name: "小川 航基", position: "FW", club: "NECﾅｲﾒﾍﾝ（ｵﾗﾝﾀﾞ）", jpclub: "横浜FC", feature: "高さと得点感覚を備えるストライカー。" },
+  { number: 11, name: "前田 大然", position: "FW", club: "ｾﾙﾃｨｯｸ（ｽｺｯﾄﾗﾝﾄﾞ）", jpclub: "横浜F・マリノス", feature: "圧倒的なスプリントと前線守備が武器。" },
+  { number: 7, name: "田中 碧", position: "MF", club: "ﾘｰｽﾞ・ﾕﾅｲﾃｯﾄﾞ（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "川崎フロンターレ", feature: "前線への飛び出しとパスワークに強み。" },
+  { number: 17, name: "鈴木 唯人", position: "MF", club: "SCﾌﾗｲﾌﾞﾙｸ（ﾄﾞｲﾂ）", jpclub: "清水エスパルス", feature: "攻撃の間で受けて変化を作れるアタッカー。" },
+  { number: 26, name: "塩貝 健人", position: "FW", club: "VfLｳﾞｫﾙﾌｽﾌﾞﾙｸ（ﾄﾞｲﾂ）", jpclub: "横浜F・マリノス", feature: "勢いと得点感覚のある若手フォワード。" },
+  { number: 9, name: "後藤 啓介", position: "FW", club: "ｼﾝﾄ=ﾄﾛｲﾃﾞﾝ（ﾍﾞﾙｷﾞｰ）", jpclub: "ジュビロ磐田", feature: "高さとポストプレーが魅力の大型ストライカー。" }
 ];
 
 function showDetail(player) {
@@ -447,7 +450,7 @@ function renderBench() {
 
   benchPlayers.forEach(player => {
     const card = document.createElement("button");
-    card.className = "benchCard";
+    card.className = "benchCard" + (player.position === "GK" ? " gk" : "");
     card.onclick = () => showDetail(player);
 
     card.innerHTML = `
@@ -466,3 +469,4 @@ renderBench();
 
 </body>
 </html>
+
