@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本代表フォーメーション</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #07152f;
+  color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 18px 12px 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.03em;
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #c8d6ff;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #123d91;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.main {
+  width: 100%;
+  padding: 10px 10px 30px;
+}
+
+.pitch {
+  width: min(94vw, 430px);
+  height: min(136vw, 630px);
+  margin: 0 auto;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #23834e 0%,
+      #23834e 12.5%,
+      #1f7a49 12.5%,
+      #1f7a49 25%
+    );
+  border: 3px solid #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.38);
+}
+
+.pitch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, transparent 49.8%, rgba(255,255,255,0.75) 49.8%, rgba(255,255,255,0.75) 50.2%, transparent 50.2%);
+  pointer-events: none;
+}
+
+.centerCircle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 112px;
+  height: 112px;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(255,255,255,0.75);
+  border-radius: 50%;
+}
+
+.penaltyTop,
+.penaltyBottom {
+  position: absolute;
+  left: 50%;
+  width: 58%;
+  height: 72px;
+  transform: translateX(-50%);
+  border: 2px solid rgba(255,255,255,0.75);
+}
+
+.penaltyTop {
+  top: -2px;
+  border-top: none;
+}
+
+.penaltyBottom {
+  bottom: -2px;
+  border-bottom: none;
+}
+
+.playerSpot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.playerBtn {
+  width: clamp(45px, 12vw, 58px);
+  height: clamp(45px, 12vw, 58px);
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background: #0f2f86;
+  color: #fff;
+  font-size: clamp(15px, 4vw, 20px);
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.45);
+  touch-action: manipulation;
+}
+
+.playerBtn:active {
+  transform: scale(0.94);
+}
+
+.gk .playerBtn {
+  background: #f6c343;
+  color: #111;
+}
+
+.playerName {
+  width: 76px;
+  text-align: center;
+  font-size: clamp(10px, 2.9vw, 12px);
+  font-weight: 800;
+  line-height: 1.15;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sectionTitle {
+  width: min(94vw, 430px);
+  margin: 18px auto 10px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.bench {
+  width: min(94vw, 430px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.benchCard {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-radius: 14px;
+  padding: 9px 6px;
+  text-align: center;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.benchNo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0f2f86;
+  border: 2px solid #fff;
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.benchName {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.benchPos {
+  margin-top: 2px;
+  font-size: 10px;
+  color: #c8d6ff;
+}
+
+.detail {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  background: #fff;
+  color: #111;
+  border-radius: 22px 22px 0 0;
+  padding: 18px 18px 24px;
+  box-shadow: 0 -12px 35px rgba(0,0,0,0.42);
+  transform: translateY(110%);
+  transition: transform 0.24s ease;
+}
+
+.detail.show {
+  transform: translateY(0);
+}
+
+.detailInner {
+  width: min(100%, 430px);
+  margin: 0 auto;
+}
+
+.detailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.detail h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.closeBtn {
+  border: none;
+  background: #eee;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.infoBox {
+  background: #f3f5f8;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.infoLabel {
+  font-size: 11px;
+  color: #667;
+}
+
+.infoValue {
+  margin-top: 2px;
+  font-weight: 800;
+}
+
+.feature {
+  margin-top: 12px;
+  background: #eef3ff;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.note {
+  width: min(94vw, 430px);
+  margin: 12px auto 0;
+  color: #b9c7ee;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@media (min-width: 700px) {
+  .detail {
+    left: 50%;
+    right: auto;
+    bottom: 24px;
+    width: 430px;
+    border-radius: 22px;
+    transform: translate(-50%, 130%);
+  }
+
+  .detail.show {
+    transform: translate(-50%, 0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>日本代表 フォーメーション</h1>
+  <div class="subtitle">選手をタップするとプロフィールを表示</div>
+  <div class="badge">3-4-2-1</div>
+</header>
+
+<main class="main">
+  <div class="pitch" id="pitch">
+    <div class="centerCircle"></div>
+    <div class="penaltyTop"></div>
+    <div class="penaltyBottom"></div>
+  </div>
+
+  <div class="sectionTitle">ベンチメンバー</div>
+  <div class="bench" id="bench"></div>
+
+  <p class="note">
+    ※これは雛形です。背番号，所属，説明文は自由に差し替えてください。
+  </p>
+</main>
+
+<div class="detail" id="detail"></div>
+
+<script>
+const starters = [
+  { number: 1, name: "鈴木 彩艶", position: "GK", club: "パルマ（イタリア）", jpclub: "浦和レッズ", x: 50, y: 91, feature: "ビルドアップにも関われる守護神。" },
+
+  { number: 3, name: "谷口 彰悟", position: "CB", club: "シント＝トロイデン", jpclub: "左CB", x: 24, y: 75, feature: "落ち着いた守備対応と配球が持ち味。" },
+  { number: 4, name: "板倉 滉", position: "CB", club: "ボルシアMG", jpclub: "中央CB", x: 50, y: 78, feature: "対人守備とカバーリングに優れる最終ラインの柱。" },
+  { number: 16, name: "冨安 健洋", position: "CB", club: "アーセナル", jpclub: "右CB", x: 76, y: 75, feature: "複数ポジションをこなせる万能型ディフェンダー。" },
+
+  { number: 7, name: "三笘 薫", position: "WB", club: "ブライトン", jpclub: "左WB", x: 13, y: 55, feature: "左サイドの突破力と仕掛けが最大の武器。" },
+  { number: 6, name: "遠藤 航", position: "MF", club: "リヴァプール", jpclub: "ボランチ", x: 38, y: 60, feature: "球際と回収力で中盤を支えるキャプテンタイプ。" },
+  { number: 5, name: "守田 英正", position: "MF", club: "スポルティングCP", jpclub: "ボランチ", x: 62, y: 60, feature: "攻守のバランスを整える中盤のリンクマン。" },
+  { number: 2, name: "菅原 由勢", position: "WB", club: "サウサンプトン", jpclub: "右WB", x: 87, y: 55, feature: "右サイドの推進力とクロスが魅力。" },
+
+  { number: 20, name: "久保 建英", position: "MF", club: "レアル・ソシエダ", jpclub: "シャドー", x: 38, y: 35, feature: "狭い局面で違いを作れる左利きのアタッカー。" },
+  { number: 10, name: "堂安 律", position: "MF", club: "フライブルク", jpclub: "シャドー", x: 62, y: 35, feature: "カットインと得点力を持つ攻撃的MF。" },
+
+  { number: 9, name: "上田 綺世", position: "FW", club: "フェイエノールト", jpclub: "CF", x: 50, y: 16, feature: "ボックス内での動き出しと決定力が強み。" }
+];
+
+const benchPlayers = [
+  { number: 1, name: "大迫 敬介", position: "GK", club: "サンフレッチェ広島", jpclub: "控えGK", feature: "安定感のあるゴールキーパー。" },
+  { number: 12, name: "前川 黛也", position: "GK", club: "ヴィッセル神戸", jpclub: "控えGK", feature: "足元も使えるGK。" },
+  { number: 22, name: "町田 浩樹", position: "DF", club: "ホッフェンハイム", jpclub: "CB", feature: "高さと左利きのビルドアップが強み。" },
+  { number: 19, name: "中山 雄太", position: "DF", club: "町田ゼルビア", jpclub: "DF", feature: "左サイドとCBをこなせる守備者。" },
+  { number: 21, name: "伊藤 洋輝", position: "DF", club: "バイエルン", jpclub: "DF", feature: "左足の配球と守備範囲が魅力。" },
+
+  { number: 14, name: "伊東 純也", position: "MF", club: "スタッド・ランス", jpclub: "右サイド", feature: "縦へのスピードとクロスが武器。" },
+  { number: 17, name: "田中 碧", position: "MF", club: "リーズ", jpclub: "MF", feature: "前線への飛び出しとパスワークに強み。" },
+  { number: 15, name: "鎌田 大地", position: "MF", club: "クリスタル・パレス", jpclub: "MF", feature: "間で受けて攻撃を組み立てるタイプ。" },
+  { number: 8, name: "南野 拓実", position: "MF", club: "モナコ", jpclub: "シャドー", feature: "ゴール前への入り方がうまいアタッカー。" },
+  { number: 13, name: "中村 敬斗", position: "MF", club: "スタッド・ランス", jpclub: "左サイド", feature: "カットインからのシュートが魅力。" },
+
+  { number: 11, name: "前田 大然", position: "FW", club: "セルティック", jpclub: "FW", feature: "圧倒的なスプリントと前線守備が武器。" },
+  { number: 18, name: "浅野 拓磨", position: "FW", club: "マジョルカ", jpclub: "FW", feature: "裏への抜け出しとスピードが強み。" },
+  { number: 24, name: "小川 航基", position: "FW", club: "NEC", jpclub: "CF", feature: "高さと得点感覚のあるストライカー。" },
+  { number: 25, name: "旗手 怜央", position: "MF", club: "セルティック", jpclub: "MF", feature: "中盤から攻撃に変化をつけられる選手。" },
+  { number: 26, name: "橋岡 大樹", position: "DF", club: "ルートン", jpclub: "右DF", feature: "右サイドで強度高くプレーできる。" }
+];
+
+function showDetail(player) {
+  const detail = document.getElementById("detail");
+
+  detail.innerHTML = `
+    <div class="detailInner">
+      <div class="detailHeader">
+        <h2>${player.number}番　${player.name}</h2>
+        <button class="closeBtn" onclick="closeDetail()">×</button>
+      </div>
+
+      <div class="infoGrid">
+        <div class="infoBox">
+          <div class="infoLabel">ポジション</div>
+          <div class="infoValue">${player.position}</div>
+        </div>
+        <div class="infoBox">
+          <div class="infoLabel">背番号</div>
+          <div class="infoValue">${player.number}</div>
+        </div>
+        <div class="infoBox">
+          <div class="infoLabel">現所属</div>
+          <div class="infoValue">${player.club}</div>
+        </div>
+        <div class="infoBox">
+          <div class="infoLabel">日本での所属</div>
+          <div class="infoValue">${player.jpclub}</div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="infoLabel">説明</div>
+        <div class="infoValue">${player.feature}</div>
+      </div>
+    </div>
+  `;
+
+  detail.classList.add("show");
+}
+
+function closeDetail() {
+  document.getElementById("detail").classList.remove("show");
+}
+
+function renderPitch() {
+  const pitch = document.getElementById("pitch");
+
+  starters.forEach(player => {
+    const spot = document.createElement("div");
+    spot.className = "playerSpot" + (player.position === "GK" ? " gk" : "");
+    spot.style.left = player.x + "%";
+    spot.style.top = player.y + "%";
+
+    const btn = document.createElement("button");
+    btn.className = "playerBtn";
+    btn.textContent = player.number;
+    btn.onclick = () => showDetail(player);
+
+    const name = document.createElement("div");
+    name.className = "playerName";
+    name.textContent = player.name;
+
+    spot.appendChild(btn);
+    spot.appendChild(name);
+    pitch.appendChild(spot);
+  });
+}
+
+function renderBench() {
+  const bench = document.getElementById("bench");
+
+  benchPlayers.forEach(player => {
+    const card = document.createElement("button");
+    card.className = "benchCard";
+    card.onclick = () => showDetail(player);
+
+    card.innerHTML = `
+      <div class="benchNo">${player.number}</div>
+      <div class="benchName">${player.name}</div>
+      <div class="benchPos">${player.position}</div>
+    `;
+
+    bench.appendChild(card);
+  });
+}
+
+renderPitch();
+renderBench();
+</script>
+
+</body>
+</html>
