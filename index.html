@@ -341,7 +341,7 @@ h1 {
 
 <script>
 const starters = [
-  { number: 1, name: "鈴木 彩艶", position: "GK", club: "ﾊﾟﾙﾏ（ｲﾀﾘｱ）", jpclub: "浦和レッズ", x: 50, y: 91, feature: "ビルドアップにも関われる守護神。" },
+  { number: 1, name: "鈴木 彩艶", position: "GK", club: "ﾊﾟﾙﾏ（ｲﾀﾘｱ）", jpclub: "浦和レッズ", x: 50, y: 91, feature: "超人セーブで日本をゴールを守る．\nパスも上手く，ビルドアップに優れたGK" },
 
   { number: 21, name: "伊藤 洋輝", position: "CB", club: "ﾊﾞｲｴﾙﾝ（ﾄﾞｲﾂ）", jpclub: "ジュビロ磐田", x: 24, y: 75, feature: "落ち着いた守備対応と配球が持ち味。" },
   { number: 3, name: "谷口 彰悟", position: "CB", club: "ｼﾝﾄ=ﾄﾛｲﾃﾞﾝ（ﾍﾞﾙｷﾞｰ）", jpclub: "川崎フロンターレ", x: 50, y: 78, feature: "複数ポジションをこなせる万能型ディフェンダー。" },
@@ -409,7 +409,7 @@ function showDetail(player) {
 
       <div class="feature">
         <div class="infoLabel">説明</div>
-        <div class="infoValue">${player.feature}</div>
+        <div class="infoValue">${player.feature.replace(/\n/g, "<br>")}</div>
       </div>
     </div>
   `;
