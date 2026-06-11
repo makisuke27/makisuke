@@ -328,7 +328,7 @@ h1 {
   <div class="bench" id="bench"></div>
 
   <p class="note">
-    ※これは雛形です。背番号，所属，説明文は自由に差し替えてください。
+    ※予想フォーメーション
   </p>
 </main>
 
@@ -336,21 +336,21 @@ h1 {
 
 <script>
 const starters = [
-  { number: 1, name: "鈴木 彩艶", position: "GK", club: "パルマ（イタリア）", jpclub: "浦和レッズ", x: 50, y: 91, feature: "ビルドアップにも関われる守護神。" },
+  { number: 1, name: "鈴木 彩艶", position: "GK", club: "ﾊﾟﾙﾏ（ｲﾀﾘｱ）", jpclub: "浦和ﾚｯｽﾞ", x: 50, y: 91, feature: "ビルドアップにも関われる守護神。" },
 
-  { number: 3, name: "谷口 彰悟", position: "CB", club: "シント＝トロイデン", jpclub: "左CB", x: 24, y: 75, feature: "落ち着いた守備対応と配球が持ち味。" },
-  { number: 4, name: "板倉 滉", position: "CB", club: "ボルシアMG", jpclub: "中央CB", x: 50, y: 78, feature: "対人守備とカバーリングに優れる最終ラインの柱。" },
-  { number: 16, name: "冨安 健洋", position: "CB", club: "アーセナル", jpclub: "右CB", x: 76, y: 75, feature: "複数ポジションをこなせる万能型ディフェンダー。" },
+  { number: 21, name: "伊藤 洋輝", position: "CB", club: "ﾊﾞｲｴﾙﾝ（ﾄﾞｲﾂ）", jpclub: "ｼﾞｭﾋﾞﾛ磐田", x: 24, y: 78, feature: "落ち着いた守備対応と配球が持ち味。" },
+  { number: 3, name: "谷口 彰悟", position: "CB", club: "ｼﾝﾄ=ﾄﾛｲﾃﾞﾝ（ﾍﾞﾙｷﾞｰ）", jpclub: "川崎ﾌﾛﾝﾀｰﾚ", x: 50, y: 75, feature: "複数ポジションをこなせる万能型ディフェンダー。" },
+  { number: 4, name: "板倉 滉", position: "CB", club: "ｱﾔｯｸｽ（ｵﾗﾝﾀﾞ）", jpclub: "川崎ﾌﾛﾝﾀｰﾚ", x: 76, y: 78, feature: "対人守備とカバーリングに優れる最終ラインの柱。" },
 
-  { number: 7, name: "三笘 薫", position: "WB", club: "ブライトン", jpclub: "左WB", x: 13, y: 55, feature: "左サイドの突破力と仕掛けが最大の武器。" },
-  { number: 6, name: "遠藤 航", position: "MF", club: "リヴァプール", jpclub: "ボランチ", x: 38, y: 60, feature: "球際と回収力で中盤を支えるキャプテンタイプ。" },
-  { number: 5, name: "守田 英正", position: "MF", club: "スポルティングCP", jpclub: "ボランチ", x: 62, y: 60, feature: "攻守のバランスを整える中盤のリンクマン。" },
-  { number: 2, name: "菅原 由勢", position: "WB", club: "サウサンプトン", jpclub: "右WB", x: 87, y: 55, feature: "右サイドの推進力とクロスが魅力。" },
+  { number: 13, name: "中村 敬斗", position: "MF", club: "ｽﾀｯﾄﾞ・ﾗﾝｽ（ﾌﾗﾝｽ）", jpclub: "ｶﾞﾝﾊﾞ大阪", x: 13 , y: 55, feature: "カットインからのシュートが魅力。" },
+  { number: 15, name: "鎌田 大地", position: "MF", club: "ｸﾘｽﾀﾙ・ﾊﾟﾚｽ（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "ｻｶﾞﾝ鳥栖", x: 38 , y: 60, feature: "間で受けて攻撃を組み立てるタイプ。" },
+  { number: 24, name: "佐野 海舟", position: "MF", club: "ﾏｲﾝﾂ（ﾄﾞｲﾂ）", jpclub: "鹿島ｱﾝﾄﾗｰｽﾞ", x: 62, y: 60, feature: "攻守のバランスを整える中盤のリンクマン。" },
+  { number: 10, name: "堂安 律", position: "MF", club: "ﾌﾗﾝｸﾌﾙﾄ（ﾄﾞｲﾂ）", jpclub: "ｶﾞﾝﾊﾞ大阪", x: 87, y: 55, feature: "カットインと得点力を持つ攻撃的MF。" },
+  
+　{ number: 14, name: "伊東 純也", position: "MF", club: "ﾍﾝｸ（ﾍﾞﾙｷﾞｰ）", jpclub: "柏ﾚｲｿﾙ", x: 62, y: 35, feature: "縦へのスピードとクロスが武器。" },
+  { number: 20, name: "久保 建英", position: "MF", club: "ﾚｱﾙ・ｿｼｴﾀﾞ（ｽﾍﾟｲﾝ）", jpclub: "FC東京", x: 38, y: 35, feature: "狭い局面で違いを作れる左利きのアタッカー。" },
 
-  { number: 20, name: "久保 建英", position: "MF", club: "レアル・ソシエダ", jpclub: "シャドー", x: 38, y: 35, feature: "狭い局面で違いを作れる左利きのアタッカー。" },
-  { number: 10, name: "堂安 律", position: "MF", club: "フライブルク", jpclub: "シャドー", x: 62, y: 35, feature: "カットインと得点力を持つ攻撃的MF。" },
-
-  { number: 9, name: "上田 綺世", position: "FW", club: "フェイエノールト", jpclub: "CF", x: 50, y: 16, feature: "ボックス内での動き出しと決定力が強み。" }
+  { number: 9, name: "上田 綺世", position: "FW", club: "ﾌｪｲｴﾉｰﾙﾄ（ｵﾗﾝﾀﾞ）", jpclub: "鹿島ｱﾝﾄﾗｰｽﾞ", x: 50, y: 16, feature: "ボックス内での動き出しと決定力が強み。" }
 ];
 
 const benchPlayers = [
@@ -359,7 +359,9 @@ const benchPlayers = [
   { number: 22, name: "町田 浩樹", position: "DF", club: "ホッフェンハイム", jpclub: "CB", feature: "高さと左利きのビルドアップが強み。" },
   { number: 19, name: "中山 雄太", position: "DF", club: "町田ゼルビア", jpclub: "DF", feature: "左サイドとCBをこなせる守備者。" },
   { number: 21, name: "伊藤 洋輝", position: "DF", club: "バイエルン", jpclub: "DF", feature: "左足の配球と守備範囲が魅力。" },
-
+  { number: 16, name: "冨安 健洋", position: "CB", club: "アーセナル", jpclub: "右CB",  feature: "複数ポジションをこなせる万能型ディフェンダー。" },
+  { number: 2, name: "菅原 由勢", position: "MF", club: "サウサンプトン", jpclub: "右WB",  feature: "右サイドの推進力とクロスが魅力。" },
+  
   { number: 14, name: "伊東 純也", position: "MF", club: "スタッド・ランス", jpclub: "右サイド", feature: "縦へのスピードとクロスが武器。" },
   { number: 17, name: "田中 碧", position: "MF", club: "リーズ", jpclub: "MF", feature: "前線への飛び出しとパスワークに強み。" },
   { number: 15, name: "鎌田 大地", position: "MF", club: "クリスタル・パレス", jpclub: "MF", feature: "間で受けて攻撃を組み立てるタイプ。" },
