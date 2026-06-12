@@ -64,7 +64,7 @@ h1{margin:0;font-size:22px;letter-spacing:.03em}
 <body>
 <header>
   <h1>日本代表 フォーメーション</h1>
-  <div class="subtitle">通常時はタップでプロフィール表示</div>
+  <div class="subtitle">タップでプロフィール表示</div>
   <div class="badge">3-4-2-1</div>
   <div class="toolbar">
     <button id="subModeBtn" class="modeBtn" onclick="toggleSubMode()">選手交代モード</button>
@@ -76,25 +76,25 @@ h1{margin:0;font-size:22px;letter-spacing:.03em}
   <div class="pitch" id="pitch"><div class="centerCircle"></div><div class="penaltyTop"></div><div class="penaltyBottom"></div></div>
   <div class="sectionTitle">ベンチメンバー</div>
   <div class="bench" id="bench"></div>
-  <p class="note">※予想フォーメーション。選手交代モードではスタメンとベンチを1人ずつ選ぶと入れ替わります。配置変更モードではスタメンをドラッグできます。</p>
+  <p class="note">※選手交代モードではスタメンとベンチを1人ずつ選ぶと入れ替わります。配置変更モードではスタメンをドラッグできます。</p>
 </main>
 <div class="detail" id="detail"></div>
 <script>
 let isSubMode=false,isMoveMode=false,selectedStarter=null,selectedBench=null,draggingPlayer=null,didDrag=false;
 const starters = [
-  { number: 1, name: "鈴木 彩艶", position: "GK", club: "ﾊﾟﾙﾏ（ｲﾀﾘｱ）", jpclub: "浦和レッズ", x: 50, y: 91, feature: "超人セーブで日本をゴールを守る。\nパスも上手く、ビルドアップに優れたGK。" },
+  { number: 1, name: "鈴木 彩艶", position: "GK", club: "パルマ（ｲﾀﾘｱ）", jpclub: "浦和レッズ", x: 50, y: 91, feature: "超人セーブで日本をゴールを守る。\nパスも上手く、ビルドアップに優れたGK。" },
 
-  { number: 21, name: "伊藤 洋輝", position: "CB/LB", club: "ﾊﾞｲｴﾙﾝ（ﾄﾞｲﾂ）", jpclub: "ジュビロ磐田", x: 24, y: 76, feature: "落ち着いた守備対応と配球が持ち味。\n今季ブンデスリーガ（ドイツ）で優勝。" },
+  { number: 21, name: "伊藤 洋輝", position: "CB/LB", club: "バイエルン（ﾄﾞｲﾂ）", jpclub: "ジュビロ磐田", x: 24, y: 76, feature: "落ち着いた守備対応と配球が持ち味。\n今季ブンデスリーガ（ドイツ）で優勝。" },
   { number: 3, name: "谷口 彰悟", position: "CB", club: "ｼﾝﾄ=ﾄﾛｲﾃﾞﾝ（ﾍﾞﾙｷﾞｰ）", jpclub: "川崎フロンターレ", x: 50, y: 76, feature: "アキレス腱断裂の大怪我から復帰。\nクレバーな守備と味方の統制に優れる。\nいつどの画角から見てもイケメン。" },
-  { number: 4, name: "板倉 滉", position: "CB", club: "ｱﾔｯｸｽ（ｵﾗﾝﾀﾞ）", jpclub: "川崎フロンターレ", x: 76, y: 76, feature: "対人守備とカバーリングに優れる最終ラインの柱。\n遠藤航の離脱によりキャプテンに任命。" },
+  { number: 4, name: "板倉 滉", position: "CB", club: "アヤックス（ｵﾗﾝﾀﾞ）", jpclub: "川崎フロンターレ", x: 76, y: 76, feature: "対人守備とカバーリングに優れる最終ラインの柱。\n遠藤航の離脱によりキャプテンに任命。" },
 
   { number: 13, name: "中村 敬斗", position: "LMF", club: "ｽﾀｯﾄﾞ・ﾗﾝｽ（ﾌﾗﾝｽ）", jpclub: "ガンバ大阪", x: 13 , y: 55, feature: "カットインからのシュートが魅力。\nソックスを異常に短く履く。" },
-  { number: 15, name: "鎌田 大地", position: "CMF/ST", club: "ｸﾘｽﾀﾙﾊﾟﾚｽ（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "サガン鳥栖", x: 38 , y: 60, feature: "守備も攻撃も淡々とこなすクレバーなMF。\n「やる気がなさそうに見える」のは本人も気にしている。" },
-  { number: 24, name: "佐野 海舟", position: "DMF", club: "ﾏｲﾝﾂ（ﾄﾞｲﾂ）", jpclub: "鹿島アントラーズ", x: 62, y: 60, feature: "ピッチ上に5人以上いると疑うほどの運動量。\n海舟がボールを回収。" },
-  { number: 10, name: "堂安 律", position: "RMF", club: "ﾌﾗﾝｸﾌﾙﾄ（ﾄﾞｲﾂ）", jpclub: "ガンバ大阪", x: 87, y: 55, feature: "強烈な左足と、ここ一番の勝負強さが武器。\n前回大会ではドイツとスペインからゴール。" },
+  { number: 15, name: "鎌田 大地", position: "CMF/ST", club: "C・ﾊﾟﾚｽ（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "サガン鳥栖", x: 38 , y: 60, feature: "守備も攻撃も淡々とこなすクレバーなMF。\n「やる気がなさそうに見える」のは本人も気にしている。" },
+  { number: 24, name: "佐野 海舟", position: "DMF", club: "マインツ（ﾄﾞｲﾂ）", jpclub: "鹿島アントラーズ", x: 62, y: 60, feature: "ピッチ上に5人以上いると疑うほどの運動量。\n海舟がボールを回収。" },
+  { number: 10, name: "堂安 律", position: "RMF", club: "フランクフルト（ﾄﾞｲﾂ）", jpclub: "ガンバ大阪", x: 87, y: 55, feature: "強烈な左足と、ここ一番の勝負強さが武器。\n前回大会ではドイツとスペインからゴール。" },
   
-　{ number: 14, name: "伊東 純也", position: "RMF/ST", club: "ﾍﾝｸ（ﾍﾞﾙｷﾞｰ）", jpclub: "柏レイソル", x: 35, y: 35, feature: "縦へのスピードとクロスが武器。\n通称「イナズマ純也」。" },
-  { number: 20, name: "久保 建英", position: "RMF/ST", club: "ﾚｱﾙ・ｿｼｴﾀﾞ（ｽﾍﾟｲﾝ）", jpclub: "FC東京", x: 65, y: 35, feature: "狭い局面で違いを作れるレフティー。\nスペイン語ペラペラ。" },
+　{ number: 14, name: "伊東 純也", position: "RMF/ST", club: "ヘンク（ﾍﾞﾙｷﾞｰ）", jpclub: "柏レイソル", x: 35, y: 35, feature: "縦へのスピードとクロスが武器。\n通称「イナズマ純也」。" },
+  { number: 20, name: "久保 建英", position: "RMF/ST", club: "レアル・ソシエダ（ｽﾍﾟｲﾝ）", jpclub: "FC東京", x: 65, y: 35, feature: "狭い局面で違いを作れるレフティー。\nスペイン語ペラペラ。" },
 
   { number: 9, name: "上田 綺世", position: "CF", club: "ﾌｪｲｴﾉｰﾙﾄ（ｵﾗﾝﾀﾞ）", jpclub: "鹿島アントラーズ", x: 50, y: 16, feature: "強烈なフィジカルと爆裂シュート。\n「理不尽」という言葉がよく似合う。" }
 ];
@@ -105,9 +105,9 @@ const benchPlayers = [
 
   { number: 5, name: "長友 佑都", position: "LB", club: "FC東京", jpclub: "FC東京", feature: "自身5度目のW杯を迎えるレジェンド。\n出番はなくともチームの精神的支柱に。\nブラボー！" },
   { number: 16, name: "渡辺 剛", position: "CB", club: "ﾌｪｲｴﾉｰﾙﾄ（ｵﾗﾝﾀﾞ）", jpclub: "FC東京", feature: "高さと対人守備に強いセンターバック。\n名前の通り「剛」。" },
-  { number: 22, name: "冨安 健洋", position: "CB/LB/RB", club: "ｱﾔｯｸｽ（ｵﾗﾝﾀﾞ）", jpclub: "アビスパ福岡", feature: "怪我さえなければ世界トップクラス。\n怪我明けの今大会、どこで出番がくるか。" },
+  { number: 22, name: "冨安 健洋", position: "CB/LB/RB", club: "アヤックス（ｵﾗﾝﾀﾞ）", jpclub: "アビスパ福岡", feature: "怪我さえなければ世界トップクラス。\n怪我明けの今大会、どこで出番がくるか。" },
   { number: 20, name: "瀬古 歩夢", position: "CB/DMF", club: "ﾙ・ｱｰｳﾞﾙAC（ﾌﾗﾝｽ）", jpclub: "セレッソ大阪", feature: "読みの良さとカバーリングが魅力のCB。\n今大会はボランチ起用もあるか。" },
-  { number: 2, name: "菅原 由勢", position: "RB", club: "ﾌﾞﾚｰﾒﾝ（ﾄﾞｲﾂ）", jpclub: "名古屋グランパス", feature: "右サイドでの推進力とクロスが武器。\nお調子者で、チームのムードメーカー。" },
+  { number: 2, name: "菅原 由勢", position: "RB", club: "ブレーメン（ﾄﾞｲﾂ）", jpclub: "名古屋グランパス", feature: "右サイドでの推進力とクロスが武器。\nお調子者で、チームのムードメーカー。" },
   { number: 25, name: "鈴木 淳之介", position: "CB/LB", club: "ｺﾍﾟﾝﾊｰｹﾞﾝ（ﾃﾞﾝﾏｰｸ）", jpclub: "湘南ベルマーレ", feature: "左利きでビルドアップにも関われる若手。\n終盤の守備固めとしての起用か。" },
 
   { number: 19, name: "小川 航基", position: "CF", club: "NECﾅｲﾒﾍﾝ（ｵﾗﾝﾀﾞ）", jpclub: "横浜FC", feature: "高さと得点感覚を備えるストライカー。" },
@@ -122,7 +122,7 @@ function setStatus(t){document.getElementById("status").textContent=t||""}
 function updateModeUI(){const s=document.getElementById("subModeBtn"),m=document.getElementById("moveModeBtn"),p=document.getElementById("pitch");s.classList.toggle("active",isSubMode);m.classList.toggle("active",isMoveMode);p.classList.toggle("moveMode",isMoveMode);s.textContent=isSubMode?"交代モード中":"選手交代モード";m.textContent=isMoveMode?"配置変更中":"配置変更モード"}
 function toggleSubMode(){isSubMode=!isSubMode;if(isSubMode)isMoveMode=false;selectedStarter=null;selectedBench=null;closeDetail();updateModeUI();renderAll();setStatus(isSubMode?"交代モード：スタメンとベンチを1人ずつ選んでください。":"")}
 function toggleMoveMode(){isMoveMode=!isMoveMode;if(isMoveMode)isSubMode=false;selectedStarter=null;selectedBench=null;closeDetail();updateModeUI();renderAll();setStatus(isMoveMode?"配置変更モード：スタメン選手をドラッグして動かせます。":"")}
-function showDetail(player){if(isSubMode||isMoveMode)return;const d=document.getElementById("detail");d.innerHTML=`<div class="detailInner"><div class="detailHeader"><h2>${player.number}番　${player.name}</h2><button class="closeBtn" onclick="closeDetail()">×</button></div><div class="infoGrid"><div class="infoBox"><div class="infoLabel">ポジション</div><div class="infoValue">${player.position}</div></div><div class="infoBox"><div class="infoLabel">背番号</div><div class="infoValue">${player.number}</div></div><div class="infoBox"><div class="infoLabel">現所属</div><div class="infoValue">${player.club}</div></div><div class="infoBox"><div class="infoLabel">日本での所属</div><div class="infoValue">${player.jpclub}</div></div></div><div class="feature"><div class="infoLabel">説明</div><div class="infoValue">${player.feature}</div></div></div>`;d.classList.add("show")}
+function showDetail(player){if(isSubMode||isMoveMode)return;const d=document.getElementById("detail");d.innerHTML=`<div class="detailInner"><div class="detailHeader"><h2>${player.number}番　${player.name}</h2><button class="closeBtn" onclick="closeDetail()">×</button></div><div class="infoGrid"><div class="infoBox"><div class="infoLabel">ポジション</div><div class="infoValue">${player.position}</div></div><div class="infoBox"><div class="infoLabel">背番号</div><div class="infoValue">${player.number}</div></div><div class="infoBox"><div class="infoLabel">現所属</div><div class="infoValue">${player.club}</div></div><div class="infoBox"><div class="infoLabel">日本での最終所属</div><div class="infoValue">${player.jpclub}</div></div></div><div class="feature"><div class="infoLabel">説明</div><div class="infoValue">${player.feature}</div></div></div>`;d.classList.add("show")}
 function closeDetail(){document.getElementById("detail").classList.remove("show")}
 function onStarterClick(player){if(isMoveMode)return;if(!isSubMode){showDetail(player);return}selectedStarter=player;setStatus(`交代モード：スタメン「${player.name}」を選択中。ベンチ選手を選んでください。`);checkSubstitutionReady();renderAll()}
 function onBenchClick(player){if(!isSubMode){showDetail(player);return}selectedBench=player;setStatus(`交代モード：ベンチ「${player.name}」を選択中。スタメン選手を選んでください。`);checkSubstitutionReady();renderAll()}
