@@ -5,7 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>日本代表フォーメーション</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#07152f;color:#fff}header{text-align:center;padding:18px 12px 10px}h1{margin:0;font-size:22px;letter-spacing:.03em}.subtitle{margin-top:6px;font-size:13px;color:#c8d6ff}.badge{display:inline-block;margin-top:10px;padding:6px 14px;border-radius:999px;background:#123d91;border:1px solid rgba(255,255,255,.3);font-size:13px;font-weight:700}.toolbar{width:min(94vw,430px);margin:12px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}.modeBtn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;border-radius:999px;padding:11px 8px;font-weight:800;font-size:13px;cursor:pointer}.modeBtn.active{background:#f6c343;color:#111;border-color:#f6c343}.status{width:min(94vw,430px);min-height:28px;margin:8px auto 0;color:#dce6ff;font-size:12px;text-align:center;line-height:1.5}.main{width:100%;padding:10px 10px 30px}.pitch{width:min(94vw,430px);height:min(136vw,630px);margin:0 auto;position:relative;background:repeating-linear-gradient(90deg,#23834e 0%,#23834e 12.5%,#1f7a49 12.5%,#1f7a49 25%);border:3px solid #fff;border-radius:18px;overflow:hidden;box-shadow:0 14px 35px rgba(0,0,0,.38);touch-action:none}.pitch::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 49.8%,rgba(255,255,255,.75) 49.8%,rgba(255,255,255,.75) 50.2%,transparent 50.2%);pointer-events:none}.centerCircle{position:absolute;left:50%;top:50%;width:112px;height:112px;transform:translate(-50%,-50%);border:2px solid rgba(255,255,255,.75);border-radius:50%}.penaltyTop,.penaltyBottom{position:absolute;left:50%;width:58%;height:72px;transform:translateX(-50%);border:2px solid rgba(255,255,255,.75)}.penaltyTop{top:-2px;border-top:none}.penaltyBottom{bottom:-2px;border-bottom:none}.playerSpot{position:absolute;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:4px}.playerBtn{width:clamp(45px,12vw,58px);height:clamp(45px,12vw,58px);border-radius:50%;border:3px solid #fff;background:#0f2f86;color:#fff;font-size:clamp(15px,4vw,20px);font-weight:900;cursor:pointer;box-shadow:0 5px 12px rgba(0,0,0,.45);touch-action:none}.playerBtn:active{transform:scale(.94)}.gk .playerBtn{background:#f6c343;color:#111}.selected .playerBtn,.benchCard.selected{outline:4px solid #ff5c5c;outline-offset:2px}.moveMode .playerBtn{cursor:grab}.playerName{width:76px;text-align:center;font-size:clamp(10px,2.9vw,12px);font-weight:800;line-height:1.15;text-shadow:0 2px 4px rgba(0,0,0,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sectionTitle{width:min(94vw,430px);margin:18px auto 10px;font-size:16px;font-weight:800}.bench{width:min(94vw,430px);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.benchCard{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;border-radius:14px;padding:9px 6px;text-align:center;cursor:pointer;touch-action:manipulation}.benchNo{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#0f2f86;border:2px solid #fff;font-weight:900;font-size:13px}.benchCard.gk .benchNo{background:#f6c343;color:#111}.benchName{margin-top:5px;font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.benchPos{margin-top:2px;font-size:10px;color:#c8d6ff}.detail{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;color:#111;border-radius:22px 22px 0 0;padding:18px 18px 24px;box-shadow:0 -12px 35px rgba(0,0,0,.42);transform:translateY(110%);transition:transform .24s ease}.detail.show{transform:translateY(0)}.detailInner{width:min(100%,430px);margin:0 auto}.detailHeader{display:flex;justify-content:space-between;align-items:center;gap:12px}.detail h2{margin:0;font-size:22px}.closeBtn{border:none;background:#eee;width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer}.infoGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.infoBox{background:#f3f5f8;border-radius:12px;padding:10px}.infoLabel{font-size:11px;color:#667}.infoValue{margin-top:2px;font-weight:800;white-space:pre-line}.feature{margin-top:12px;background:#eef3ff;border-radius:12px;padding:12px}.note{width:min(94vw,430px);margin:12px auto 0;color:#b9c7ee;font-size:11px;line-height:1.5}@media(min-width:700px){.detail{left:50%;right:auto;bottom:24px;width:430px;border-radius:22px;transform:translate(-50%,130%)}.detail.show{transform:translate(-50%,0)}}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#07152f;color:#fff}
+header{text-align:center;padding:18px 12px 10px}
+h1{margin:0;font-size:22px;letter-spacing:.03em}
+.subtitle{margin-top:6px;font-size:13px;color:#c8d6ff}
+.badge{display:inline-block;margin-top:10px;padding:6px 14px;border-radius:999px;background:#123d91;border:1px solid rgba(255,255,255,.3);font-size:13px;font-weight:700}
+.toolbar{width:min(94vw,430px);margin:12px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.modeBtn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;border-radius:999px;padding:11px 8px;font-weight:800;font-size:13px;cursor:pointer}
+.modeBtn.active{background:#f6c343;color:#111;border-color:#f6c343}
+.status{width:min(94vw,430px);min-height:28px;margin:8px auto 0;color:#dce6ff;font-size:12px;text-align:center;line-height:1.5}
+.main{width:100%;padding:10px 10px 30px}
+
+.pitch{width:min(94vw,430px);height:min(136vw,630px);margin:0 auto;position:relative;background:repeating-linear-gradient(90deg,#23834e 0%,#23834e 12.5%,#1f7a49 12.5%,#1f7a49 25%);border:3px solid #fff;border-radius:18px;overflow:hidden;box-shadow:0 14px 35px rgba(0,0,0,.38);touch-action:pan-y}
+.pitch.moveMode{touch-action:none}
+
+.pitch::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 49.8%,rgba(255,255,255,.75) 49.8%,rgba(255,255,255,.75) 50.2%,transparent 50.2%);pointer-events:none}
+.centerCircle{position:absolute;left:50%;top:50%;width:112px;height:112px;transform:translate(-50%,-50%);border:2px solid rgba(255,255,255,.75);border-radius:50%}
+.penaltyTop,.penaltyBottom{position:absolute;left:50%;width:58%;height:72px;transform:translateX(-50%);border:2px solid rgba(255,255,255,.75)}
+.penaltyTop{top:-2px;border-top:none}
+.penaltyBottom{bottom:-2px;border-bottom:none}
+
+.playerSpot{position:absolute;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:4px}
+.playerBtn{width:clamp(45px,12vw,58px);height:clamp(45px,12vw,58px);border-radius:50%;border:3px solid #fff;background:#0f2f86;color:#fff;font-size:clamp(15px,4vw,20px);font-weight:900;cursor:pointer;box-shadow:0 5px 12px rgba(0,0,0,.45);touch-action:manipulation}
+.playerBtn:active{transform:scale(.94)}
+.gk .playerBtn{background:#f6c343;color:#111}
+.selected .playerBtn,.benchCard.selected{outline:4px solid #ff5c5c;outline-offset:2px}
+.moveMode .playerBtn{cursor:grab}
+.playerName{width:76px;text-align:center;font-size:clamp(10px,2.9vw,12px);font-weight:800;line-height:1.15;text-shadow:0 2px 4px rgba(0,0,0,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.sectionTitle{width:min(94vw,430px);margin:18px auto 10px;font-size:16px;font-weight:800}
+.bench{width:min(94vw,430px);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.benchCard{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;border-radius:14px;padding:9px 6px;text-align:center;cursor:pointer;touch-action:manipulation}
+.benchNo{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#0f2f86;border:2px solid #fff;font-weight:900;font-size:13px}
+.benchCard.gk .benchNo{background:#f6c343;color:#111}
+.benchName{margin-top:5px;font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.benchPos{margin-top:2px;font-size:10px;color:#c8d6ff}
+
+.detail{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;color:#111;border-radius:22px 22px 0 0;padding:18px 18px 24px;box-shadow:0 -12px 35px rgba(0,0,0,.42);transform:translateY(110%);transition:transform .24s ease}
+.detail.show{transform:translateY(0)}
+.detailInner{width:min(100%,430px);margin:0 auto}
+.detailHeader{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.detail h2{margin:0;font-size:22px}
+.closeBtn{border:none;background:#eee;width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer}
+.infoGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.infoBox{background:#f3f5f8;border-radius:12px;padding:10px}
+.infoLabel{font-size:11px;color:#667}
+.infoValue{margin-top:2px;font-weight:800;white-space:pre-line}
+.feature{margin-top:12px;background:#eef3ff;border-radius:12px;padding:12px}
+.note{width:min(94vw,430px);margin:12px auto 0;color:#b9c7ee;font-size:11px;line-height:1.5}
+
+@media(min-width:700px){
+.detail{left:50%;right:auto;bottom:24px;width:430px;border-radius:22px;transform:translate(-50%,130%)}
+.detail.show{transform:translate(-50%,0)}
+}
 </style>
 </head>
 <body>
@@ -31,38 +84,39 @@ let isSubMode=false,isMoveMode=false,selectedStarter=null,selectedBench=null,dra
 const starters = [
   { number: 1, name: "鈴木 彩艶", position: "GK", club: "ﾊﾟﾙﾏ（ｲﾀﾘｱ）", jpclub: "浦和レッズ", x: 50, y: 91, feature: "超人セーブで日本をゴールを守る。\nパスも上手く、ビルドアップに優れたGK。" },
 
-  { number: 21, name: "伊藤 洋輝", position: "CB", club: "ﾊﾞｲｴﾙﾝ（ﾄﾞｲﾂ）", jpclub: "ジュビロ磐田", x: 24, y: 76, feature: "落ち着いた守備対応と配球が持ち味。\n今季ブンデスリーガ（ドイツ）で優勝。" },
-  { number: 3, name: "谷口 彰悟", position: "CB", club: "ｼﾝﾄ=ﾄﾛｲﾃﾞﾝ（ﾍﾞﾙｷﾞｰ）", jpclub: "川崎フロンターレ", x: 50, y: 76, feature: "アキレス腱断裂の大怪我から復帰。\nクレバーな守備と味方の統制に優れる。\nいつどの画角から見てもイケメン。\n川崎から世界へ。温かく見守ってください。" },
+  { number: 21, name: "伊藤 洋輝", position: "CB/LB", club: "ﾊﾞｲｴﾙﾝ（ﾄﾞｲﾂ）", jpclub: "ジュビロ磐田", x: 24, y: 76, feature: "落ち着いた守備対応と配球が持ち味。\n今季ブンデスリーガ（ドイツ）で優勝。" },
+  { number: 3, name: "谷口 彰悟", position: "CB", club: "ｼﾝﾄ=ﾄﾛｲﾃﾞﾝ（ﾍﾞﾙｷﾞｰ）", jpclub: "川崎フロンターレ", x: 50, y: 76, feature: "アキレス腱断裂の大怪我から復帰。\nクレバーな守備と味方の統制に優れる。\nいつどの画角から見てもイケメン。" },
   { number: 4, name: "板倉 滉", position: "CB", club: "ｱﾔｯｸｽ（ｵﾗﾝﾀﾞ）", jpclub: "川崎フロンターレ", x: 76, y: 76, feature: "対人守備とカバーリングに優れる最終ラインの柱。\n遠藤航の離脱によりキャプテンに任命。" },
 
-  { number: 13, name: "中村 敬斗", position: "MF", club: "ｽﾀｯﾄﾞ・ﾗﾝｽ（ﾌﾗﾝｽ）", jpclub: "ガンバ大阪", x: 13 , y: 55, feature: "カットインからのシュートが魅力。\nソックスを異常に短く履く。" },
-  { number: 15, name: "鎌田 大地", position: "MF", club: "ｸﾘｽﾀﾙﾊﾟﾚｽ（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "サガン鳥栖", x: 38 , y: 60, feature: "守備も攻撃も淡々とこなすクレバーなMF。\n「やる気がなさそうに見える」のは本人も気にしている。" },
-  { number: 24, name: "佐野 海舟", position: "MF", club: "ﾏｲﾝﾂ（ﾄﾞｲﾂ）", jpclub: "鹿島アントラーズ", x: 62, y: 60, feature: "ピッチ上に5人以上いると疑うほどの運動量。\n海舟がボールを回収。" },
-  { number: 10, name: "堂安 律", position: "MF", club: "ﾌﾗﾝｸﾌﾙﾄ（ﾄﾞｲﾂ）", jpclub: "ガンバ大阪", x: 87, y: 55, feature: "強烈な左足と、ここ一番の勝負強さが武器。\n前回大会ではドイツとスペインからゴール。" },
+  { number: 13, name: "中村 敬斗", position: "LMF", club: "ｽﾀｯﾄﾞ・ﾗﾝｽ（ﾌﾗﾝｽ）", jpclub: "ガンバ大阪", x: 13 , y: 55, feature: "カットインからのシュートが魅力。\nソックスを異常に短く履く。" },
+  { number: 15, name: "鎌田 大地", position: "CMF/ST", club: "ｸﾘｽﾀﾙﾊﾟﾚｽ（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "サガン鳥栖", x: 38 , y: 60, feature: "守備も攻撃も淡々とこなすクレバーなMF。\n「やる気がなさそうに見える」のは本人も気にしている。" },
+  { number: 24, name: "佐野 海舟", position: "DMF", club: "ﾏｲﾝﾂ（ﾄﾞｲﾂ）", jpclub: "鹿島アントラーズ", x: 62, y: 60, feature: "ピッチ上に5人以上いると疑うほどの運動量。\n海舟がボールを回収。" },
+  { number: 10, name: "堂安 律", position: "RMF", club: "ﾌﾗﾝｸﾌﾙﾄ（ﾄﾞｲﾂ）", jpclub: "ガンバ大阪", x: 87, y: 55, feature: "強烈な左足と、ここ一番の勝負強さが武器。\n前回大会ではドイツとスペインからゴール。" },
   
-　{ number: 14, name: "伊東 純也", position: "MF", club: "ﾍﾝｸ（ﾍﾞﾙｷﾞｰ）", jpclub: "柏レイソル", x: 35, y: 35, feature: "縦へのスピードとクロスが武器。\n通称「イナズマ純也」" },
-  { number: 20, name: "久保 建英", position: "MF", club: "ﾚｱﾙ・ｿｼｴﾀﾞ（ｽﾍﾟｲﾝ）", jpclub: "FC東京", x: 65, y: 35, feature: "狭い局面で違いを作れるレフティー。\nスペイン語ペラペラ。" },
+　{ number: 14, name: "伊東 純也", position: "RMF/ST", club: "ﾍﾝｸ（ﾍﾞﾙｷﾞｰ）", jpclub: "柏レイソル", x: 35, y: 35, feature: "縦へのスピードとクロスが武器。\n通称「イナズマ純也」。" },
+  { number: 20, name: "久保 建英", position: "RMF/ST", club: "ﾚｱﾙ・ｿｼｴﾀﾞ（ｽﾍﾟｲﾝ）", jpclub: "FC東京", x: 65, y: 35, feature: "狭い局面で違いを作れるレフティー。\nスペイン語ペラペラ。" },
 
-  { number: 9, name: "上田 綺世", position: "FW", club: "ﾌｪｲｴﾉｰﾙﾄ（ｵﾗﾝﾀﾞ）", jpclub: "鹿島アントラーズ", x: 50, y: 16, feature: "強烈なフィジカルと爆裂シュート。\n「理不尽」という言葉がよく似合う。" }
+  { number: 9, name: "上田 綺世", position: "CF", club: "ﾌｪｲｴﾉｰﾙﾄ（ｵﾗﾝﾀﾞ）", jpclub: "鹿島アントラーズ", x: 50, y: 16, feature: "強烈なフィジカルと爆裂シュート。\n「理不尽」という言葉がよく似合う。" }
 ];
 
 const benchPlayers = [
   { number: 23, name: "早川 友基", position: "GK", club: "鹿島アントラーズ", jpclub: "鹿島アントラーズ", feature: "人外な読みと反射神経でゴールに鍵をかける。\n昨季のJ1MVP。" },
   { number: 12, name: "大迫 敬介", position: "GK", club: "サンフレッチェ広島", jpclub: "サンフレッチェ広島", feature: "長らく日本代表の控えGKを務める。" },
 
-  { number: 5, name: "長友 佑都", position: "DF", club: "FC東京", jpclub: "FC東京", feature: "豊富な経験でチームを支えるレジェンド。\n出番はなくともチームの精神的支柱に。\nブラボー！" },
-  { number: 16, name: "渡辺 剛", position: "DF", club: "ﾌｪｲｴﾉｰﾙﾄ（ｵﾗﾝﾀﾞ）", jpclub: "FC東京", feature: "高さと対人守備に強いセンターバック。" },
-  { number: 22, name: "冨安 健洋", position: "DF", club: "ｱﾔｯｸｽ（ｵﾗﾝﾀﾞ）", jpclub: "アビスパ福岡", feature: "怪我さえなければ世界トップクラス。\n怪我明けの今大会、どこで出番がくるか" },
-  { number: 20, name: "瀬古 歩夢", position: "DF", club: "ﾙ・ｱｰｳﾞﾙAC（ﾌﾗﾝｽ）", jpclub: "セレッソ大阪", feature: "読みの良さとカバーリングが魅力のCB。\n今大会はボランチ起用もあるか。" },
-  { number: 2, name: "菅原 由勢", position: "DF", club: "ﾌﾞﾚｰﾒﾝ（ﾄﾞｲﾂ）", jpclub: "名古屋グランパス", feature: "右サイドでの推進力とクロスが武器。\nお調子者で、チームのムードメーカー" },
-  { number: 25, name: "鈴木 淳之介", position: "DF", club: "ｺﾍﾟﾝﾊｰｹﾞﾝ（ﾃﾞﾝﾏｰｸ）", jpclub: "湘南ベルマーレ", feature: "左利きでビルドアップにも関われる若手。" },
+  { number: 5, name: "長友 佑都", position: "LB", club: "FC東京", jpclub: "FC東京", feature: "自身5度目のW杯を迎えるレジェンド。\n出番はなくともチームの精神的支柱に。\nブラボー！" },
+  { number: 16, name: "渡辺 剛", position: "CB", club: "ﾌｪｲｴﾉｰﾙﾄ（ｵﾗﾝﾀﾞ）", jpclub: "FC東京", feature: "高さと対人守備に強いセンターバック。\n名前の通り「剛」。" },
+  { number: 22, name: "冨安 健洋", position: "CB/LB/RB", club: "ｱﾔｯｸｽ（ｵﾗﾝﾀﾞ）", jpclub: "アビスパ福岡", feature: "怪我さえなければ世界トップクラス。\n怪我明けの今大会、どこで出番がくるか。" },
+  { number: 20, name: "瀬古 歩夢", position: "CB/DMF", club: "ﾙ・ｱｰｳﾞﾙAC（ﾌﾗﾝｽ）", jpclub: "セレッソ大阪", feature: "読みの良さとカバーリングが魅力のCB。\n今大会はボランチ起用もあるか。" },
+  { number: 2, name: "菅原 由勢", position: "RB", club: "ﾌﾞﾚｰﾒﾝ（ﾄﾞｲﾂ）", jpclub: "名古屋グランパス", feature: "右サイドでの推進力とクロスが武器。\nお調子者で、チームのムードメーカー。" },
+  { number: 25, name: "鈴木 淳之介", position: "CB/LB", club: "ｺﾍﾟﾝﾊｰｹﾞﾝ（ﾃﾞﾝﾏｰｸ）", jpclub: "湘南ベルマーレ", feature: "左利きでビルドアップにも関われる若手。\n終盤の守備固めとしての起用か。" },
 
-  { number: 19, name: "小川 航基", position: "FW", club: "NECﾅｲﾒﾍﾝ（ｵﾗﾝﾀﾞ）", jpclub: "横浜FC", feature: "高さと得点感覚を備えるストライカー。" },
-  { number: 11, name: "前田 大然", position: "FW", club: "ｾﾙﾃｨｯｸ（ｽｺｯﾄﾗﾝﾄﾞ）", jpclub: "横浜F・マリノス", feature: "圧倒的なスプリントで相手にプレッシャーをかけ続ける。" },
-  { number: 7, name: "田中 碧", position: "MF", club: "ﾘｰｽﾞ（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "川崎フロンターレ", feature: "三笘薫とは幼馴染で、怪我で無念の落選となった盟友の7番を継ぐ。\nなにかとラッキーボーイで、ドラマを起こしてくれそう。" },
-  { number: 17, name: "鈴木 唯人", position: "MF", club: "SCﾌﾗｲﾌﾞﾙｸ（ﾄﾞｲﾂ）", jpclub: "清水エスパルス", feature: "攻撃の間で受けて変化を作れるアタッカー。" },
-  { number: 26, name: "塩貝 健人", position: "FW", club: "ｳﾞｫﾙﾌｽﾌﾞﾙｸ（ﾄﾞｲﾂ）", jpclub: "横浜F・マリノス", feature: "勢いと得点感覚のある若手フォワード。" },
-  { number: 9, name: "後藤 啓介", position: "FW", club: "ｼﾝﾄ=ﾄﾛｲﾃﾞﾝ（ﾍﾞﾙｷﾞｰ）", jpclub: "ジュビロ磐田", feature: "高さとポストプレーが魅力の大型ストライカー。" }
+  { number: 19, name: "小川 航基", position: "CF", club: "NECﾅｲﾒﾍﾝ（ｵﾗﾝﾀﾞ）", jpclub: "横浜FC", feature: "高さと得点感覚を備えるストライカー。" },
+  { number: 11, name: "前田 大然", position: "CF", club: "ｾﾙﾃｨｯｸ（ｽｺｯﾄﾗﾝﾄﾞ）", jpclub: "横浜F・マリノス", feature: "圧倒的なスピードでプレッシャーをかけ続ける。\n日本の秘密兵器。" },
+  { number: 7, name: "田中 碧", position: "CMF", club: "ﾘｰｽﾞ（ｲﾝｸﾞﾗﾝﾄﾞ）", jpclub: "川崎フロンターレ", feature: "怪我で不在の三笘薫とは幼馴染で、彼の7番を継ぐ。\n何か起こしてくれそうなラッキーボーイ。" },
+  { number: 17, name: "鈴木 唯人", position: "ST", club: "SCﾌﾗｲﾌﾞﾙｸ（ﾄﾞｲﾂ）", jpclub: "清水エスパルス", feature: "攻撃の間で受けて変化を作れるアタッカー。" },
+  { number: 26, name: "塩貝 健人", position: "ST", club: "ｳﾞｫﾙﾌｽﾌﾞﾙｸ（ﾄﾞｲﾂ）", jpclub: "横浜F・マリノス", feature: "勢いと得点感覚のある若手フォワード。\n少し荒々しい部分も。" },
+  { number: 9, name: "後藤 啓介", position: "CF", club: "ｼﾝﾄ=ﾄﾛｲﾃﾞﾝ（ﾍﾞﾙｷﾞｰ）", jpclub: "ジュビロ磐田", feature: "高さとポストプレーが魅力の大型ストライカー。" },
+  { number: 6, name: "町野 修斗", position: "ST/CF", club: "ﾎﾞﾙｼｱMG（ドイツ）", jpclub: "湘南ベルマーレ", feature: "遠藤航の離脱で急遽の追加召集。" }
 ];
 function setStatus(t){document.getElementById("status").textContent=t||""}
 function updateModeUI(){const s=document.getElementById("subModeBtn"),m=document.getElementById("moveModeBtn"),p=document.getElementById("pitch");s.classList.toggle("active",isSubMode);m.classList.toggle("active",isMoveMode);p.classList.toggle("moveMode",isMoveMode);s.textContent=isSubMode?"交代モード中":"選手交代モード";m.textContent=isMoveMode?"配置変更中":"配置変更モード"}
